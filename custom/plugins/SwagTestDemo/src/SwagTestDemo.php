@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace FirstTestDemo;
+namespace SwagTestDemo;
 
 use Shopware\Core\Framework\Plugin;
 
-class FirstTestDemo extends Plugin
+class SwagTestDemo extends Plugin
 {
 }

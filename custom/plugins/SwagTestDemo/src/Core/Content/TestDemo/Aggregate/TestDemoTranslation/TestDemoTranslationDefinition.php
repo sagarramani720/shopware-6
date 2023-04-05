@@ -1,15 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace FirstTestDemo\Core\Content\TestDemo\Aggregate\TestDemoTranslation;
+namespace SwagTestDemo\Core\Content\TestDemo\Aggregate\TestDemoTranslation;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityTranslationDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
-use FirstTestDemo\Core\Content\TestDemo\TestDemoDefinition;
+use SwagTestDemo\Core\Content\TestDemo\TestDemoDefinition;
+
 class TestDemoTranslationDefinition extends EntityTranslationDefinition
 {
-    public const ENTITY_NAME = 'first_test_demo';
+    public const ENTITY_NAME = 'test_demo_translation';
     public function getEntityName(): string
     {
         return self::ENTITY_NAME;
@@ -18,10 +19,10 @@ class TestDemoTranslationDefinition extends EntityTranslationDefinition
     {
         return TestDemoDefinition::class;
     }
-//    public function getEntityClass(): string
-//    {
-//        return TestDemoEntity::class;
-//    }
+    public function getEntityClass(): string
+    {
+        return TestDemoTranslationEntity::class;
+    }
     protected function defineFields(): FieldCollection
     {
         return new FieldCollection([

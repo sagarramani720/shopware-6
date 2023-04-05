@@ -24,9 +24,7 @@ CREATE TABLE `country` (
     PRIMARY KEY (`id`),
     CONSTRAINT `json.country.customer_tax` CHECK (JSON_VALID(`customer_tax`)),
     CONSTRAINT `json.country.company_tax` CHECK (JSON_VALID(`company_tax`)),
-    CONSTRAINT `json.country.translated` CHECK (JSON_VALID(`translated`)),
-    KEY `fk.country.country_id` (`country_id`),
-    CONSTRAINT `fk.country.country_id` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT `json.country.translated` CHECK (JSON_VALID(`translated`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `country_state` (
@@ -40,9 +38,7 @@ CREATE TABLE `country_state` (
     PRIMARY KEY (`id`),
     CONSTRAINT `json.country_state.translated` CHECK (JSON_VALID(`translated`)),
     KEY `fk.country_state.country_id` (`country_id`),
-    KEY `fk.country_state.country_state_id` (`country_state_id`),
-    CONSTRAINT `fk.country_state.country_id` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-    CONSTRAINT `fk.country_state.country_state_id` FOREIGN KEY (`country_state_id`) REFERENCES `country_state` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT `fk.country_state.country_id` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `country_state_translation` (

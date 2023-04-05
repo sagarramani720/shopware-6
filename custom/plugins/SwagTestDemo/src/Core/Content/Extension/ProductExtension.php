@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace FirstTestDemo\Core\Content\Extension;
+namespace SwagTestDemo\Core\Content\Extension;
 
 use Shopware\Core\Content\Product\ProductDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;

@@ -83,16 +83,12 @@ CREATE TABLE `product` (
     KEY `fk.product.product_feature_set_id` (`product_feature_set_id`),
     KEY `fk.product.cms_page_id` (`cms_page_id`,`cms_page_version_id`),
     KEY `fk.product.canonical_product_id` (`canonical_product_id`,`parent_version_id`),
-    KEY `fk.product.product_id` (`product_id`,`parent_version_id`),
-    CONSTRAINT `fk.product.parent_id` FOREIGN KEY (`parent_id`,`version_id`) REFERENCES `product` (`id`,`version_id`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `fk.product.delivery_time_id` FOREIGN KEY (`delivery_time_id`) REFERENCES `delivery_time` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `fk.product.tax_id` FOREIGN KEY (`tax_id`) REFERENCES `tax` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `fk.product.product_manufacturer_id` FOREIGN KEY (`product_manufacturer_id`,`product_manufacturer_version_id`) REFERENCES `product_manufacturer` (`id`,`version_id`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `fk.product.unit_id` FOREIGN KEY (`unit_id`) REFERENCES `unit` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
     CONSTRAINT `fk.product.product_feature_set_id` FOREIGN KEY (`product_feature_set_id`) REFERENCES `product_feature_set` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-    CONSTRAINT `fk.product.cms_page_id` FOREIGN KEY (`cms_page_id`,`cms_page_version_id`) REFERENCES `cms_page` (`id`,`version_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-    CONSTRAINT `fk.product.canonical_product_id` FOREIGN KEY (`canonical_product_id`,`parent_version_id`) REFERENCES `product` (`id`,`version_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-    CONSTRAINT `fk.product.product_id` FOREIGN KEY (`product_id`,`parent_version_id`) REFERENCES `product` (`id`,`version_id`) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT `fk.product.cms_page_id` FOREIGN KEY (`cms_page_id`,`cms_page_version_id`) REFERENCES `cms_page` (`id`,`version_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `product_stream_mapping` (

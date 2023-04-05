@@ -22,7 +22,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\System\Country\Aggregate\CountryState\CountryStateDefinition;
 use Shopware\Core\System\Country\CountryDefinition;
-use Shopware\Core\System\Language\LanguageDefinition;
 class TestDemoDefinition extends EntityDefinition
 {
     public const ENTITY_NAME = 'first_test_demo';
@@ -53,13 +52,11 @@ class TestDemoDefinition extends EntityDefinition
                 (new FkField('country_state_id', 'countryStateId', CountryStateDefinition::class))->addFlags(new ApiAware()),
                 new FkField('media_id','mediaId',MediaDefinition::class),
                 new FkField('product_id','productId',ProductDefinition::class),
-                new FkField('language_id','languageId',LanguageDefinition::class),
                 (new TranslationsAssociationField(TestDemoTranslationDefinition::class,'first_test_demo'))->addFlags(new Required()),
                 (new ManyToOneAssociationField('country','country_id',CountryDefinition::class,'id'))->addFlags(new ApiAware()),
                 (new ManyToOneAssociationField('state','country_state_id',CountryStateDefinition::class,'id'))->addFlags(new ApiAware()),
                 (new OneToOneAssociationField('media','media_id','id',MediaDefinition::class,false))->addFlags(new ApiAware(), new Required()),
                 (new ManyToOneAssociationField('product','product_id',ProductDefinition::class,'id'))->addFlags(new ApiAware(), new Required()),
-                (new OneToManyAssociationField('language',LanguageDefinition::class,'id'))->addFlags(new ApiAware(), new Required()),
             ]
         );
     }

@@ -16,13 +16,7 @@ class MediaExtension extends EntityExtension
     public function extendFields(FieldCollection $collection): void
     {
         $collection->add(
-            (new OneToOneAssociationField(
-                'media',
-                'media_id',
-                'id',
-                MediaDefinition::class,
-                false
-            ))
+            new OneToOneAssociationField('media','media_id','id',MediaDefinition::class,false)
         );
     }
 

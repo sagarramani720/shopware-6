@@ -14,7 +14,7 @@ class Migration1680699313 extends MigrationStep
 
     public function update(Connection $connection): void
     {
-        $connection->executeStatement("CREATE TABLE `test_demo` (
+        $connection->executeStatement("CREATE TABLE IF NOT EXISTS`test_demo` (
             `id` BINARY(16) NOT NULL,
             `product_version_id` BINARY(16) NULL,
             `not_translated_field` VARCHAR(255) NULL,
@@ -48,7 +48,6 @@ class Migration1680699313 extends MigrationStep
             CONSTRAINT `fk.test_demo_translation.language_id` FOREIGN KEY (`language_id`) REFERENCES `language` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
     }
-
     public function updateDestructive(Connection $connection): void
     {
 
